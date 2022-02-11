@@ -152,16 +152,17 @@ struct by_value{
     */
 struct PointXYZIR
 {
-    PCL_ADD_POINT4D
-    PCL_ADD_INTENSITY;
-    uint16_t ring;
+    PCL_ADD_POINT4D;
+    float intensity;
+    uint16_t ring = 0;
+    double timestamp = 0;
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 } EIGEN_ALIGN16;
 
 POINT_CLOUD_REGISTER_POINT_STRUCT (PointXYZIR,  
                                    (float, x, x) (float, y, y)
                                    (float, z, z) (float, intensity, intensity)
-                                   (uint16_t, ring, ring)
+                                   (uint16_t, ring, ring) (double, timestamp, timestamp)
 )
 
 /*

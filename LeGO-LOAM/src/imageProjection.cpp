@@ -171,10 +171,11 @@ public:
         // have "ring" channel in the cloud
         if (useCloudRing == true){
             pcl::fromROSMsg(*laserCloudMsg, *laserCloudInRing);
-            if (laserCloudInRing->is_dense == false) {
-                ROS_ERROR("Point cloud is not in dense format, please remove NaN points first!");
-                ros::shutdown();
-            }  
+	    // workaround, don't check is_dense
+            // if (laserCloudInRing->is_dense == false) {
+            //     ROS_ERROR("Point cloud is not in dense format, please remove NaN points first!");
+            //     ros::shutdown();
+            // }  
         }
     }
     
